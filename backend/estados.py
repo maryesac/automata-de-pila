@@ -30,6 +30,8 @@ class Estados(Transicion):
                 pila = pila[:-1]
                 cinta = cinta[1:]
                 pila = pila + "aa"
+                self.list.insert(END,"a,a/aa")
+                time.sleep(1)
                 self.automata.activarTransicion("a,a/aa")
                 time.sleep(1)
                 self.automata.desactivarTransicion("a,a/aa")
@@ -37,6 +39,8 @@ class Estados(Transicion):
                 pila = pila[:-1]
                 cinta = cinta[1:]
                 pila = pila + "ba"
+                self.list.insert(END,"a,b/ba")
+                time.sleep(1)
                 self.automata.activarTransicion("a,b/ba")
                 time.sleep(1)
                 self.automata.desactivarTransicion("a,b/ba")
@@ -44,6 +48,8 @@ class Estados(Transicion):
                 pila = pila[:-1]
                 cinta = cinta[1:]
                 pila = "#a"
+                self.list.insert(END,"a,#/#a")
+                time.sleep(1)
                 self.automata.activarTransicion("a,#/#a")
                 time.sleep(1)
                 self.automata.desactivarTransicion("a,#/#a")
@@ -55,6 +61,8 @@ class Estados(Transicion):
                 pila = pila[:-1]
                 cinta = cinta[1:]
                 pila = pila + "ab"
+                self.list.insert(END,"b,a/ab")
+                time.sleep(1)
                 self.automata.activarTransicion("b,a/ab")
                 time.sleep(1)
                 self.automata.desactivarTransicion("b,a/ab")
@@ -62,6 +70,8 @@ class Estados(Transicion):
                 pila = pila[:-1]
                 cinta = cinta[1:]
                 pila = pila + "bb"
+                self.list.insert(END,"b,b/bb")
+                time.sleep(1)
                 self.automata.activarTransicion("b,b/bb")
                 time.sleep(1)
                 self.automata.desactivarTransicion("b,b/bb")
@@ -69,6 +79,8 @@ class Estados(Transicion):
                 pila = pila[:-1]
                 cinta = cinta[1:]
                 pila = "#b"
+                self.list.insert(END,"b,#/#")
+                time.sleep(1)
                 self.automata.activarTransicion("b,#/#b")
                 time.sleep(1)
                 self.automata.desactivarTransicion("b,#/#b")
@@ -79,18 +91,23 @@ class Estados(Transicion):
             if auxc == "a":
                 cinta = cinta[1:]
                 pila = pila[:-1] + "a"
+                self.list.insert(END,"c,a/a")
+                time.sleep(1)
                 self.automata.activarTransicion("c,a/a")
                 time.sleep(1)
                 self.automata.desactivarTransicion("c,a/a")
             if auxc == "b":
                 cinta = cinta[1:]
                 pila = pila[:-1] + "b"
+                self.list.insert(END,"c,b/b")
+                time.sleep(1)
                 self.automata.activarTransicion("c,b/b")
                 time.sleep(1)
                 self.automata.desactivarTransicion("c,b/b")
             if auxc == "#":
                 cinta = cinta[1:]
                 pila = pila[:-1] + "#"
+                self.list.insert(END,"c,#/#")
                 self.automata.activarTransicion("c,#/#")
                 time.sleep(1)
                 self.automata.desactivarTransicion("c,#/#")
@@ -121,6 +138,7 @@ class Estados(Transicion):
             pila = pila[:-1]
             estado = "r"
             print(estado, cinta, pila)
+            self.list.insert(END,"*,#/#")
             self.automata.activarTransicion("*,#/#")
             time.sleep(1)
             self.automata.desactivarTransicion("*,#/#")
@@ -135,15 +153,19 @@ class Estados(Transicion):
             if auxc == "b":
                 cinta = cinta[1:]
                 pila = pila[:-1]
+                self.list.insert(END,"b,b/*")
+                time.sleep(1)
                 self.automata.activarTransicion("b,b/*")
                 time.sleep(1)
                 self.automata.desactivarTransicion("b,b/*")
-                
+
             return Estados(estado, cinta, pila, self.automata).transiciones_q()
         if aux == "a":
             if auxc == "a":
                 cinta = cinta[1:]
-                pila = pila[:-1] 
+                pila = pila[:-1]
+                self.list.insert(END,"a,a/*")
+                time.sleep(1)
                 self.automata.activarTransicion("a,a/*")
                 time.sleep(1)
                 self.automata.desactivarTransicion("a,a/*")

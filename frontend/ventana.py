@@ -16,9 +16,9 @@ class Ventana:
         self.boton = Button(self.ventana, text="validar", command=lambda:self.validador.validar(self.automata, self.label.get()))
         self.boton.pack()
         self.boton.place(x=10,y=10)
-        self.listbox = Listbox(self.ventana,width=30, height=28)
-        self.listbox.pack()
-        self.listbox.place(x=10,y=70)
+        self.list = Listbox(self.ventana,width=30, height=28)
+        self.list.pack(side=LEFT, fill=BOTH, expand=1)
+        self.list.place(x=10,y=70)
         self.automata = Automata(self.ventana)
         self.color = "#009"
         

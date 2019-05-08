@@ -31,6 +31,11 @@ class Validador:
         validado = Validar(automata).transiciones("p", self.palabra, "#", len(self.palabra))
         if validado == True:
             lienzo.create_text(100, 100, text="APROBADA")
+            self.list.insert(END, "ACEPTADA")
         else:
             lienzo.create_text(100, 100, text="Rechazada")
+            self.list.insert(END, "NO ACEPTADA")
+
+    def insertar(self, palabra):
+        self.list.insert(END, pal)
         
